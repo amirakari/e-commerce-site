@@ -8,8 +8,8 @@ class Details extends Component {
         return (
             <ProductConsumer>
                 {value => {
-                    const {id,title,img,price,company,info,incart} = value.detailProduct[0];
-                    console.log(value.detailProduct);
+                    const {id,title,img,price,company,info,inCart} = value.detailProduct;
+                    console.log(inCart);
                     return(
                         <div className="container py-5">
                             {/* tile */}
@@ -48,12 +48,14 @@ class Details extends Component {
                                                 back to products
                                             </ButtonContainer>
                                         </Link>
-                                        <ButtonContainer
-                                            disabled={incart?true:false}
-                                            onClick={()=>{
 
+                                        <ButtonContainer cart
+                                            disabled={inCart?true:false}
+                                            onClick={()=>{
+                                                value.addToCart(id);
+                                                value.openModal(id);
                                             }}>
-                                            {incart ? "inCart" : "add to cart"}
+                                            {inCart? "in Cart" : "add to cart"}
                                         </ButtonContainer></div>
                                 </div>
                             </div>

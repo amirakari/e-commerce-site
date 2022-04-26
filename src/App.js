@@ -8,6 +8,7 @@ import Details from "./components/Details";
 import Cart from "./components/Cart";
 import Default from "./components/Default";
 import {Routes,Route} from "react-router-dom";
+import Modal from "./components/Modal";
 
 class App extends Component{
   render() {
@@ -20,6 +21,7 @@ class App extends Component{
               <Route path="/cart" element={<Cart />}></Route>
               <Route path="*" element={<Default />}></Route>
           </Routes>
+          <Modal/>
       </React.Fragment>
   );
 }
